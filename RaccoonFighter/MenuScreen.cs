@@ -25,12 +25,12 @@ namespace RaccoonFighter
         private void button1_Click(object sender, EventArgs e)
         {
             GameScreen gs = new GameScreen();
-            this.Controls.Add(gs);
             Form form = this.FindForm();
-           
+
+            form.Controls.Add(gs);
             form.Controls.Remove(this);
 
-            gs.Location = new Point((this.Width - gs.Width) / 2, (this.Height - gs.Height) / 2);
+            gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
         }
     }
 }
