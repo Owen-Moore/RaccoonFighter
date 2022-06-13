@@ -28,17 +28,20 @@ namespace RaccoonFighter
         {
             int playerWidth = 80;
             int playerHeight = 20;
-            int playerX = ((this.Width / 2) - (playerWidth / 2));
-            int playerY = (this.Height - playerHeight) - 60;
+            int playerX = 100;//((this.Width / 2) - (playerWidth / 2));
+            int playerY = 230;//(this.Height - playerHeight) - 60;
             int playerSpeed = 8;
             player = new Player(playerX, playerY, Color.Black, playerSpeed,  playerWidth, playerHeight);
 
             leftArrowDown = rightArrowDown = upArrowDown = downArrowDown = false;
 
             gameTimer.Enabled = true;
+
+            
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             if (leftArrowDown && player.x > 0)
             {
                 player.Move("left");
@@ -58,6 +61,8 @@ namespace RaccoonFighter
 
             Refresh();
         }
+
+      
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
@@ -89,6 +94,27 @@ namespace RaccoonFighter
                     break;
             }
         }
+        private void GameScreen_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Left:
+                    leftArrowDown = false;
+                    break;
+                case Keys.Right:
+                    rightArrowDown = false;
+                    break;
+                case Keys.Up:
+                    upArrowDown = false;
+                    break;
+                case Keys.Down:
+                    downArrowDown = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
     }
 }
