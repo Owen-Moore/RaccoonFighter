@@ -77,9 +77,9 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.Green;
-            this.label5.Location = new System.Drawing.Point(790, 287);
+            this.label5.Location = new System.Drawing.Point(790, 98);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 202);
+            this.label5.Size = new System.Drawing.Size(26, 391);
             this.label5.TabIndex = 4;
             // 
             // GameScreen

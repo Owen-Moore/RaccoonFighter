@@ -9,14 +9,15 @@ namespace RaccoonFighter
 {
     public class Player
     {
-        public int x, y, speed, width, height;
+        public int x, y, xspeed, yspeed, width, height;
         public Color color;
 
-        public Player(int _x, int _y, Color _color, int _speed, int _width, int _height)
+        public Player(int _x, int _y, Color _color, int _xspeed, int _yspeed, int _width, int _height)
         {
             x = _x;
             y = _y;
-            speed = _speed;
+            xspeed = _xspeed;
+            yspeed = _yspeed;
             color = _color;
             width = _width;
             height = _height;   
@@ -26,19 +27,33 @@ namespace RaccoonFighter
         {
             if (direction == "left")
             { 
-                x -= speed;
+                x -= xspeed;
             }
             if (direction == "right")
             {
-                x += speed;
+                x += xspeed;
             }
             if (direction == "up")
             {
-                y -= speed;
+                y -= yspeed;
             }
             if (direction == "down")
             { 
-                y += speed;
+                y += yspeed;
+            }
+        }
+
+        public void RaccoonCollison(GameScreen gs)
+        {
+            Rectangle playerRec = new Rectangle(x, y, width, height);
+            Rectangle raccoonRec = new Rectangle(700, gs.Height / 2, 20, 20);
+
+            if(playerRec.IntersectsWith(raccoonRec))
+            {
+                FightScreen fs = new FightScreen();
+                gs.Controls.Add(fs);
+
+                fs.Location = new Point((gs.Width - fs.Width) / 2, (gs.Height - fs.Height) / 2);
             }
         }
     }

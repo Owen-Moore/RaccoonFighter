@@ -15,6 +15,7 @@ namespace RaccoonFighter
 
         Player player;
         SolidBrush playerBrush = new SolidBrush(Color.White);
+        SolidBrush raccoonBrush = new SolidBrush(Color.Gray);
 
 
         Boolean leftArrowDown, rightArrowDown, upArrowDown, downArrowDown;
@@ -30,8 +31,9 @@ namespace RaccoonFighter
             int playerHeight = 20;
             int playerX = 100;//((this.Width / 2) - (playerWidth / 2));
             int playerY = 230;//(this.Height - playerHeight) - 60;
-            int playerSpeed = 8;
-            player = new Player(playerX, playerY, Color.Black, playerSpeed,  playerWidth, playerHeight);
+            int playerXSpeed = 8;
+            int playerYSpeed = 8;
+            player = new Player(playerX, playerY, Color.Black, playerXSpeed, playerYSpeed, playerWidth, playerHeight);
 
             leftArrowDown = rightArrowDown = upArrowDown = downArrowDown = false;
 
@@ -42,22 +44,33 @@ namespace RaccoonFighter
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            if (leftArrowDown && player.x > 0)
+            if (leftArrowDown && player.x > 48)
             {
                 player.Move("left");
             }
-            if (rightArrowDown && player.x < (this.Width - player.width))
+            if (rightArrowDown && player.x < (793 - player.width))
             {
                 player.Move("right");
             }
-            if (downArrowDown && player.y > 0)
+            if (downArrowDown && player.y < (356 - player.height))
             {
                 player.Move("down");
             }
-            if (upArrowDown && player.y < (this.Height - player.height))
+            if (upArrowDown && player.y > 98)
             {
                 player.Move("up");
             }
+
+            Rectangle playerRec = new Rectangle(player.x, player.y, player.width, player.height);
+            Rectangle raccoonRec = new Rectangle(700, this.Height / 2, 20, 20);
+
+            if (playerRec.IntersectsWith(raccoonRec))
+            {
+                gameTimer.Enabled = false;
+                Form1.ChangeScreen(this, new FightScreen());
+            }
+
+
 
             Refresh();
         }
@@ -67,7 +80,11 @@ namespace RaccoonFighter
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillRectangle(playerBrush, player.x, player.y, player.width, player.height);
+
+            e.Graphics.FillRectangle(raccoonBrush, 700, this.Height/2, 20, 20);
         }
+
+        
 
         public GameScreen()
         {
