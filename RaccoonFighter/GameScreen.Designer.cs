@@ -35,6 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -82,11 +83,22 @@
             this.label5.Size = new System.Drawing.Size(26, 391);
             this.label5.TabIndex = 4;
             // 
+            // textLabel
+            // 
+            this.textLabel.AutoSize = true;
+            this.textLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLabel.Location = new System.Drawing.Point(143, 127);
+            this.textLabel.Name = "textLabel";
+            this.textLabel.Size = new System.Drawing.Size(505, 31);
+            this.textLabel.TabIndex = 5;
+            this.textLabel.Text = "Touch Dave the raccoon to enter combat";
+            // 
             // GameScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.YellowGreen;
+            this.Controls.Add(this.textLabel);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -99,6 +111,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,5 +123,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label textLabel;
     }
 }

@@ -27,7 +27,7 @@ namespace RaccoonFighter
 
         public void OnStart()
         {
-            int playerWidth = 80;
+            int playerWidth = 20;
             int playerHeight = 20;
             int playerX = 100;//((this.Width / 2) - (playerWidth / 2));
             int playerY = 230;//(this.Height - playerHeight) - 60;

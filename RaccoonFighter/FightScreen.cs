@@ -32,20 +32,18 @@ namespace RaccoonFighter
             rhpLabel.Text = $"{raccoonHP}";
             phpLabel.Text = $"{playerHP}";
 
+            if (raccoonHP <= 0)
+            {
+                timer1.Enabled = false;
+                Form1.ChangeScreen(this, new VictoryScreen());
+            }
         }
-        //public void PlayerTurn()
-        //{
-        //    attackButton.Enabled = true;
-        //    if ()
-        //    {
-               
-
-        //    }
-        //}
+      
         private void attackButton_Click(object sender, EventArgs e)
         {
             raccoonHP -= 3;
-            battleLabel.Text = "Player dealt 3 damage";
+            playerLabel.Text = "Player dealt 3 damage";
+            System.Threading.Thread.Sleep(1000);
             RaccoonTurn();
 
         }
@@ -53,15 +51,46 @@ namespace RaccoonFighter
         {
             attackButton.Enabled = false;
             
-            if (raccoonHP > 10 && battleLabel.Text = "Player dealt 3 damage")
+            if (raccoonHP > 10 )
             {
-                battleLabel.Text = "Dave's turn";
-                System.Threading.Thread.Sleep(10000);
+                daveLabel.Text = "Dave's turn";
+                System.Threading.Thread.Sleep(1000);
                 playerHP -= 4;
-                battleLabel.Text = "Dave dealt 3 damage";
+                daveLabel.Text = "Dave dealt 4 damage";
                 attackButton.Enabled = true;
+            }
+            if (raccoonHP < 10)
+            {
+                Random randGen = new Random();
+                int move = randGen.Next(1, 3);
+                if (move == 1)
+                {
+                    raccoonHP += 1;
+                    daveLabel.Text = "Dave healed 1 hp";
+                    System.Threading.Thread.Sleep(1000);
+                    attackButton.Enabled = true;
+                }
+                else if(move == 2)
+                {
+                    daveLabel.Text = "Dave's turn";
+                    System.Threading.Thread.Sleep(2000);
+                    playerHP -= 4;
+                    daveLabel.Text = "Dave dealt 4 damage";
+                    attackButton.Enabled = true;
+                }
             }
         }
 
+        private void runButton_Click(object sender, EventArgs e)
+        {
+            playerLabel.Text = "You cannot run from Dave, coward";
+            RaccoonTurn();
+        }
+
+        private void itemButton_Click(object sender, EventArgs e)
+        {
+            playerLabel.Text = "No items, you are \nunprepared";
+            RaccoonTurn();
+        }
     }
 }

@@ -38,7 +38,12 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.raccoonLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.battleLabel = new System.Windows.Forms.Label();
+            this.daveLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.playerLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // runButton
@@ -52,6 +57,7 @@
             this.runButton.TabIndex = 0;
             this.runButton.Text = "RUN";
             this.runButton.UseVisualStyleBackColor = false;
+            this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
             // itemButton
             // 
@@ -64,6 +70,7 @@
             this.itemButton.TabIndex = 1;
             this.itemButton.Text = "ITEMS";
             this.itemButton.UseVisualStyleBackColor = false;
+            this.itemButton.Click += new System.EventHandler(this.itemButton_Click);
             // 
             // attackButton
             // 
@@ -124,20 +131,57 @@
             this.timer1.Interval = 60;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // battleLabel
+            // daveLabel
             // 
-            this.battleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.battleLabel.Location = new System.Drawing.Point(249, 50);
-            this.battleLabel.Name = "battleLabel";
-            this.battleLabel.Size = new System.Drawing.Size(272, 24);
-            this.battleLabel.TabIndex = 7;
+            this.daveLabel.BackColor = System.Drawing.Color.Transparent;
+            this.daveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.daveLabel.Location = new System.Drawing.Point(460, 85);
+            this.daveLabel.Name = "daveLabel";
+            this.daveLabel.Size = new System.Drawing.Size(272, 24);
+            this.daveLabel.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(60, 134);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(142, 160);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(499, 134);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(196, 160);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // playerLabel
+            // 
+            this.playerLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerLabel.Location = new System.Drawing.Point(15, 85);
+            this.playerLabel.Name = "playerLabel";
+            this.playerLabel.Size = new System.Drawing.Size(349, 46);
+            this.playerLabel.TabIndex = 10;
             // 
             // FightScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.Controls.Add(this.battleLabel);
+            this.Controls.Add(this.playerLabel);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.daveLabel);
             this.Controls.Add(this.raccoonLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.rhpLabel);
@@ -147,6 +191,8 @@
             this.Controls.Add(this.runButton);
             this.Name = "FightScreen";
             this.Size = new System.Drawing.Size(820, 449);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +208,9 @@
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label raccoonLabel;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label battleLabel;
+        private System.Windows.Forms.Label daveLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label playerLabel;
     }
 }
