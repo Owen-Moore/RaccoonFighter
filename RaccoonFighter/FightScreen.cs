@@ -12,6 +12,7 @@ namespace RaccoonFighter
 {
     public partial class FightScreen : UserControl
     {
+        //declaring variables
         int playerHP = 30;
         int raccoonHP = 15;
 
@@ -26,7 +27,7 @@ namespace RaccoonFighter
             timer1.Enabled = true;
         }
 
-
+        //minimal timer code
         private void timer1_Tick(object sender, EventArgs e)
         {
             rhpLabel.Text = $"{raccoonHP}";
@@ -38,7 +39,7 @@ namespace RaccoonFighter
                 Form1.ChangeScreen(this, new VictoryScreen());
             }
         }
-      
+      //player fight code
         private void attackButton_Click(object sender, EventArgs e)
         {
             raccoonHP -= 3;
@@ -47,6 +48,18 @@ namespace RaccoonFighter
             RaccoonTurn();
 
         }
+        private void runButton_Click(object sender, EventArgs e)
+        {
+            playerLabel.Text = "You cannot run from Dave, coward";
+            RaccoonTurn();
+        }
+
+        private void itemButton_Click(object sender, EventArgs e)
+        {
+            playerLabel.Text = "No items, you are \nunprepared";
+            RaccoonTurn();
+        }
+        //Raccoon fight code
         public void RaccoonTurn()
         {
             attackButton.Enabled = false;
@@ -81,16 +94,6 @@ namespace RaccoonFighter
             }
         }
 
-        private void runButton_Click(object sender, EventArgs e)
-        {
-            playerLabel.Text = "You cannot run from Dave, coward";
-            RaccoonTurn();
-        }
-
-        private void itemButton_Click(object sender, EventArgs e)
-        {
-            playerLabel.Text = "No items, you are \nunprepared";
-            RaccoonTurn();
-        }
+      
     }
 }

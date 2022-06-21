@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Owen Moore 
+// Mr Theodoropoulos 
+//ICS4C
+// Terrible attempt at a turn based RPG, it works that is all.
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
